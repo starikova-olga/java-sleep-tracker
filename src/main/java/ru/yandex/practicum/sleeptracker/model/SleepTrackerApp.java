@@ -24,8 +24,7 @@ import java.util.function.Function;
 public class SleepTrackerApp {
     private static final DateTimeFormatter LOG_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
 
-    private static final List<Function<List<SleepingSession>, SleepAnalysisResult>> ANALYTIC_FUNCTIONS = List.of
-            (new SleepSessionCounter(), new MinSleepDurationCalculator(), new MaxSleepDurationCalculator(), new AverageSleepDurationCalculator(), new BadSleepSessionsCalculator(), new ChronotypeCalculator(), new SleeplessNightsCalculator());
+    private static final List<Function<List<SleepingSession>, SleepAnalysisResult>> ANALYTIC_FUNCTIONS = List.of(new SleepSessionCounter(), new MinSleepDurationCalculator(), new MaxSleepDurationCalculator(), new AverageSleepDurationCalculator(), new BadSleepSessionsCalculator(), new ChronotypeCalculator(), new SleeplessNightsCalculator());
 
 
     public static void main(String[] args) {
@@ -46,7 +45,6 @@ public class SleepTrackerApp {
         } catch (IOException e) {
             System.out.println("Ошибка при чтении файла: " + e.getMessage());
         }
-
     }
 
     public static List<SleepAnalysisResult> analyzeData(String filename) throws IOException {
@@ -59,7 +57,6 @@ public class SleepTrackerApp {
             return ANALYTIC_FUNCTIONS.stream().map(function -> function.apply(records)).toList();
         }
     }
-
 
     public static Optional<SleepingSession> parseLine(String line) {
         String[] parts = line.split(";");
