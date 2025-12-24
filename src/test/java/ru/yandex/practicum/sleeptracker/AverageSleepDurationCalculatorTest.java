@@ -2,7 +2,6 @@ package ru.yandex.practicum.sleeptracker;
 
 import org.junit.jupiter.api.Test;
 import ru.yandex.practicum.sleeptracker.functions.AverageSleepDurationCalculator;
-import ru.yandex.practicum.sleeptracker.functions.MaxSleepDurationCalculator;
 import ru.yandex.practicum.sleeptracker.functions.SleepAnalysisResult;
 import ru.yandex.practicum.sleeptracker.functions.SleepingSession;
 
@@ -28,6 +27,7 @@ public class AverageSleepDurationCalculatorTest {
         assertEquals("Средняя продолжительность сессии сна в минутах", result.getDescription());
         assertEquals((long) 278, result.getResult());
     }
+
     // Проверка при одинаковых сессиях сна
     @Test
     public void averageDurationWithEqualSessionsTest() {
