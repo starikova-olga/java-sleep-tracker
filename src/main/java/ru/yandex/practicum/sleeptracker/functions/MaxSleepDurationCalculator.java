@@ -8,7 +8,7 @@ public class MaxSleepDurationCalculator implements Function<List<SleepingSession
     private static final String DESKRIPTION = "Максимальная продолжительность сна в минутах";
 
     @Override
-    public SleepAnalysisResult apply(List<SleepingSession> SleepEntries) {
+    public SleepAnalysisResult apply(List<SleepingSession> sleepEntries) {
 
         long maxDuration = SleepEntries.stream().map(entry -> Duration.between(entry.getStartTime(), entry.getEndTime())).max(Duration::compareTo).orElse(Duration.ofMinutes(0)).toMinutes();
 
