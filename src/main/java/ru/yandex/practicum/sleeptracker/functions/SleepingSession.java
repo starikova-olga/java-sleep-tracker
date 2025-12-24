@@ -1,4 +1,5 @@
 package ru.yandex.practicum.sleeptracker.functions;
+
 import java.time.LocalDateTime;
 
 public class SleepingSession {
@@ -11,12 +12,15 @@ public class SleepingSession {
         this.endTime = endTime;
         this.quality = quality;
     }
+
     public LocalDateTime getStartTime() {
         return startTime;
     }
+
     public LocalDateTime getEndTime() {
         return endTime;
     }
+
     public String getQuality() {
         return quality;
     }

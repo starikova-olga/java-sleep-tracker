@@ -8,9 +8,11 @@ public class SleepAnalysisResult {
         this.description = description;
         this.result = result;
     }
+
     public String getDescription() {
         return description;
     }
+
     public Object getResult() {
         return result;
     }

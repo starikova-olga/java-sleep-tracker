@@ -7,9 +7,7 @@ import java.util.function.Function;
 public class SleeplessNightsCalculator implements Function<List<SleepingSession>, SleepAnalysisResult> {
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sleepEntries) {
-        long sleeplessNightsCount = sleepEntries.stream()
-                .filter(this::isSleeplessNight)
-                .count();
+        long sleeplessNightsCount = sleepEntries.stream().filter(this::isSleeplessNight).count();
 
         return new SleepAnalysisResult("Количество бессонных ночей", sleeplessNightsCount);
     }

@@ -10,11 +10,7 @@ public class MaxSleepDurationCalculator implements Function<List<SleepingSession
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> SleepEntries) {
 
-        long maxDuration = SleepEntries.stream()
-                .map(entry -> Duration.between(entry.getStartTime(), entry.getEndTime()))
-                .max(Duration::compareTo)
-                .orElse(Duration.ofMinutes(0))
-                .toMinutes();
+        long maxDuration = SleepEntries.stream().map(entry -> Duration.between(entry.getStartTime(), entry.getEndTime())).max(Duration::compareTo).orElse(Duration.ofMinutes(0)).toMinutes();
 
         return new SleepAnalysisResult(DESKRIPTION, maxDuration);
     }

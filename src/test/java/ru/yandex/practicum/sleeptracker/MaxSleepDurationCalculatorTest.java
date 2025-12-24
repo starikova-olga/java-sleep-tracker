@@ -26,6 +26,7 @@ public class MaxSleepDurationCalculatorTest {
         assertEquals("Максимальная продолжительность сна в минутах", result.getDescription());
         assertEquals((long) 495, result.getResult());
     }
+
     @Test
     public void maxDurationWithEqualSessionsTest() {
         List<SleepingSession> sessions = new ArrayList<>();
