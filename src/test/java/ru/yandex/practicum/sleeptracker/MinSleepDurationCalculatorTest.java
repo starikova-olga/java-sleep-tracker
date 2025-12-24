@@ -23,7 +23,7 @@ public class MinSleepDurationCalculatorTest {
         assertEquals("Минимальная продолжительность сессии сна в минутах", result.getDescription());
         assertEquals((long) 410, result.getResult());
     }
-    
+
     @Test
     public void minDurationWithEqualSessionsTest() {
         List<SleepingSession> sessions = new ArrayList<>();
