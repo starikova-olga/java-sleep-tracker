@@ -14,10 +14,7 @@ public class ChronotypeCalculator implements Function<List<SleepingSession>, Sle
 
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sleepEntries) {
-        Map<String, Long> chronotypeCounts = sleepEntries.stream()
-                .filter(this::isValidEntry)
-                .map(this::determineChronotype)
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        Map<String, Long> chronotypeCounts = sleepEntries.stream().filter(this::isValidEntry).map(this::determineChronotype).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         String mostFrequentChronotype = getMostFrequentChronotype(chronotypeCounts);
         return new SleepAnalysisResult("Хронотип пользователя", mostFrequentChronotype);
@@ -31,7 +28,8 @@ public class ChronotypeCalculator implements Function<List<SleepingSession>, Sle
         }
         if (endTime.toLocalDate().isAfter(startTime.toLocalDate())) {
             return true;
-        }  return endTime.toLocalDate().isAfter(startTime.toLocalDate());
+        }
+        return endTime.toLocalDate().isAfter(startTime.toLocalDate());
 
     }
 
@@ -49,10 +47,7 @@ public class ChronotypeCalculator implements Function<List<SleepingSession>, Sle
     }
 
     private String getMostFrequentChronotype(Map<String, Long> chronotypeCounts) {
-        return chronotypeCounts.entrySet().stream()
-                .max(Map.Entry.comparingByValue())
-                .map(Map.Entry::getKey)
-                .orElse(PIGEON);
+        return chronotypeCounts.entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(PIGEON);
     }
 }
 
