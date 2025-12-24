@@ -26,7 +26,8 @@ public class BadSleepSessionsCalculatorTest {
         assertEquals("Количество сессий с плохим качеством сна", result.getDescription());
         assertEquals((long) 2, result.getResult());
     }
-// Если плохих сессий нет
+
+    // Если плохих сессий нет
     @Test
     public void badSleepCountWithNoBadSessionsTest() {
         List<SleepingSession> sessions = new ArrayList<>();
